@@ -1,6 +1,5 @@
 #import Libraries
 import pandas as pd
-import numpy as np
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -9,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 script_dir = Path(__file__).resolve().parent
 
 #Get the directory of where the data is stored
-data_path = str(script_dir.parent) + "\\original_data.csv"
+data_path = script_dir.parent / "original_data.csv"
 
 #Fetch the dataset using pandas.read_excel
 dataset = pd.read_csv(data_path)
@@ -60,3 +59,17 @@ print(X_train_scaled[:5])
 print("\n")
 print("X_test_data Scaled")
 print(X_test_scaled[:5])
+
+#Create test_data.csv which will be used to run the models later on on Streamlit app
+column_headers = X_data.columns #--> Store the column headers in column_headers array
+
+test_features = pd.DataFrame(X_test_scaled, columns=column_headers)
+
+test_target = pd.DataFrame(Y_test, columns = ["Class"])
+
+test_features = test_features.reset_index(drop = True)
+test_target = test_target.reset_index(drop = True)
+
+test_data = pd.concat([test_features, test_target], axis = 1)
+
+test_data.to_csv("./test_data.csv", index = False)
