@@ -48,3 +48,13 @@ print("Recall:", "%.4f" % nb_recall)
 print("F1 Score:", "%.4f" % nb_f1)
 print("ROC AUC Score:", "%.4f" % nb_roc_auc)
 print("Matthews Correlation Coefficient:", "%.4f" % nb_mcc)
+
+#Create a dict to store the evaluation metrics
+nb_metrics = {
+    "Accuracy": nb_accuracy,
+    "Precision": nb_precision,
+    "Recall": nb_recall,
+    "F1 Score": nb_f1,
+    "ROC AUC Score": nb_roc_auc,
+    "Matthews Correlation Coefficient": nb_mcc
+}

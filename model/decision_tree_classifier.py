@@ -54,3 +54,13 @@ print("Recall:", "%.4f" % dt_recall)
 print("F1 Score:", "%.4f" % dt_f1)
 print("ROC AUC Score:", "%.4f" % dt_roc_auc)
 print("Matthews Correlation Coefficient:", "%.4f" % dt_mcc)
+
+#Create a dict to store the evaluation metrics
+dt_metrics = {
+    "Accuracy": dt_accuracy,
+    "Precision": dt_precision,
+    "Recall": dt_recall,
+    "F1 Score": dt_f1,
+    "ROC AUC Score": dt_roc_auc,
+    "Matthews Correlation Coefficient": dt_mcc
+}

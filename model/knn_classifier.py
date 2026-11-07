@@ -52,3 +52,13 @@ print("Recall:", "%.4f" % knn_recall)
 print("F1 Score:", "%.4f" % knn_f1)
 print("ROC AUC Score:", "%.4f" % knn_roc_auc)
 print("Matthews Correlation Coefficient:", "%.4f" % knn_mcc)
+
+#Create a dict to store the evaluation metrics
+knn_metrics = {
+    "Accuracy": knn_accuracy,
+    "Precision": knn_precision,
+    "Recall": knn_recall,
+    "F1 Score": knn_f1,
+    "ROC AUC Score": knn_roc_auc,
+    "Matthews Correlation Coefficient": knn_mcc
+}

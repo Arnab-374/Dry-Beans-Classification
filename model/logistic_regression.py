@@ -51,3 +51,13 @@ print("Recall:", "%.4f" % log_reg_recall)
 print("F1 Score:", "%.4f" % log_reg_f1)
 print("ROC AUC Score:", "%.4f" % log_reg_roc_auc)
 print("Matthews Correlation Coefficient:", "%.4f" % log_reg_mcc)
+
+#Create a dict to store the evaluation metrics
+log_reg_metrics = {
+    "Accuracy": log_reg_accuracy,
+    "Precision": log_reg_precision,
+    "Recall": log_reg_recall,
+    "F1 Score": log_reg_f1,
+    "ROC AUC Score": log_reg_roc_auc,
+    "Matthews Correlation Coefficient": log_reg_mcc
+}

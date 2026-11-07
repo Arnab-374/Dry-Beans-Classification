@@ -52,3 +52,13 @@ print("Recall:", "%.4f" % svm_recall)
 print("F1 Score:", "%.4f" % svm_f1)
 print("ROC AUC Score:", "%.4f" % svm_roc_auc)
 print("Matthews Correlation Coefficient:", "%.4f" % svm_mcc)
+
+#Create a dict to store the evaluation metrics
+svm_metrics = {
+    "Accuracy": svm_accuracy,
+    "Precision": svm_precision,
+    "Recall": svm_recall,
+    "F1 Score": svm_f1,
+    "ROC AUC Score": svm_roc_auc,
+    "Matthews Correlation Coefficient": svm_mcc
+}
