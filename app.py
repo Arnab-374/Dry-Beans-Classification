@@ -9,8 +9,11 @@ from sklearn.metrics import (
     recall_score,
     f1_score,
     roc_auc_score,
-    matthews_corrcoef
+    matthews_corrcoef,
+    confusion_matrix, 
+    ConfusionMatrixDisplay
 )
+import matplotlib.pyplot as plt
 
 # Streamlit application for displaying evaluation metrics of different classifiers
 st.title("Dry Bean Classification Using 5 Different Classifiers")
@@ -63,7 +66,7 @@ if uploaded_file is not None:
     # Evaluate the selected classifier(s)
     if classifier_option == "All":
         # Header for comparison of all models
-        st.subheader("Comparison of all 5 models")
+        st.subheader("Comparison of All 5 Models")
 
         # Empty list to store values
         all_metrics = []
@@ -81,9 +84,29 @@ if uploaded_file is not None:
             }
             all_metrics.append(metrics)
 
-        st.table(pd.DataFrame(all_metrics))      
+        st.table(pd.DataFrame(all_metrics))
+
+        # Display a confusion matrix for all models together using matplotlib and sklearn
+        st.subheader("Confusion Matrices for All Models")
+        for name, model in classifiers.items():
+            Y_pred = model.predict(X_test)
+            cm = confusion_matrix(Y_test, Y_pred)
+            st.write(f"Confusion Matrix for {name}")
+            fig, ax = plt.subplots()
+            ConfusionMatrixDisplay(cm).plot(ax=ax)
+            st.pyplot(fig)
     else:
         st.subheader(classifier_option)
         evaluate_classifier(classifiers[classifier_option], X_test, Y_test)
+        # Display confusion matrix for the selected classifier
+        Y_pred = classifiers[classifier_option].predict(X_test)
+        cm = confusion_matrix(Y_test, Y_pred)
+        st.subheader(f"Confusion Matrix for {classifier_option}")
+        fig, ax = plt.subplots()
+        ConfusionMatrixDisplay(cm).plot(ax=ax)
+        st.pyplot(fig)
+
+    
+            
 
     
