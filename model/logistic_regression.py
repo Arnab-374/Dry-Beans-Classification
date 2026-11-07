@@ -1,7 +1,7 @@
 #Import Libraries Here
 from sklearn import linear_model
 import joblib
-from load_dataset import X_train, Y_train, X_test, Y_test
+from load_dataset import X_train_scaled, Y_train, X_test_scaled, Y_test
 from pathlib import Path
 from sklearn.metrics import (
     accuracy_score,
@@ -13,10 +13,13 @@ from sklearn.metrics import (
 )
 
 #Initialize Logistic Regression Model with specified parameters
-log_reg = linear_model.LogisticRegression(C = 1.0, max_iter=1000)
+log_reg = linear_model.LogisticRegression(
+  C = 1.0, # Inverse of regularization strength
+  max_iter=2000 # Maximum number of iterations for the solver
+)
 
 #Train the model 
-log_reg.fit(X_train, Y_train)
+log_reg.fit(X_train_scaled, Y_train)
 
 #Get the directory of the current running script
 script_dir = Path(__file__).resolve().parent
@@ -28,8 +31,8 @@ joblib.dump(log_reg, script_dir / 'logistic_regression_model.joblib')
 print("Logistic Regression model saved as 'logistic_regression_model.joblib'")
 
 #Run the model on the test dataset and store the predictions as well as probabilities
-Y_pred = log_reg.predict(X_test)
-Y_prob = log_reg.predict_proba(X_test)
+Y_pred = log_reg.predict(X_test_scaled)
+Y_prob = log_reg.predict_proba(X_test_scaled)
 
 #Evaluate the model's metrics on the test set
 log_reg_accuracy = accuracy_score(Y_test, Y_pred) # Accuracy score
