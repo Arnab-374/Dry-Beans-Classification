@@ -56,12 +56,12 @@ if uploaded_file is not None:
     # Function to evaluate and display metrics for a given classifier
     def evaluate_classifier(model, X_test, Y_test):
         Y_pred = model.predict(X_test)
-        st.write("Accuracy:", accuracy_score(Y_test, Y_pred))
-        st.write("Precision:", precision_score(Y_test, Y_pred, average="weighted"))
-        st.write("Recall:", recall_score(Y_test, Y_pred, average="weighted"))
-        st.write("F1 Score:", f1_score(Y_test, Y_pred, average="weighted"))
-        st.write("ROC AUC Score:", roc_auc_score(Y_test, model.predict_proba(X_test), multi_class="ovr"))
-        st.write("Matthews Correlation Coefficient:", matthews_corrcoef(Y_test, Y_pred))
+        st.write("Accuracy:", "%.4f" % accuracy_score(Y_test, Y_pred))
+        st.write("ROC AUC Score:", "%.4f" % roc_auc_score(Y_test, model.predict_proba(X_test), multi_class="ovr"))
+        st.write("Precision:", "%.4f" % precision_score(Y_test, Y_pred, average="weighted"))
+        st.write("Recall:", "%.4f" % recall_score(Y_test, Y_pred, average="weighted"))
+        st.write("F1 Score:", "%.4f" % f1_score(Y_test, Y_pred, average="weighted"))
+        st.write("Matthews Correlation Coefficient:", "%.4f" % matthews_corrcoef(Y_test, Y_pred))
 
     # Evaluate the selected classifier(s)
     if classifier_option == "All":
@@ -75,12 +75,12 @@ if uploaded_file is not None:
             Y_pred = model.predict(X_test) # Run model prediction on test data
             metrics = {
                 "Model": name,
-                "Accuracy": accuracy_score(Y_test, Y_pred),
-                "Precision": precision_score(Y_test, Y_pred, average="weighted"),
-                "Recall": recall_score(Y_test, Y_pred, average="weighted"),
-                "F1 Score": f1_score(Y_test, Y_pred, average="weighted"),
-                "ROC AUC Score": roc_auc_score(Y_test, model.predict_proba(X_test), multi_class="ovr"),
-                "Matthews Correlation Coefficient": matthews_corrcoef(Y_test, Y_pred)
+                "Accuracy": "%.4f" % accuracy_score(Y_test, Y_pred),
+                "ROC AUC Score": "%.4f" % roc_auc_score(Y_test, model.predict_proba(X_test), multi_class="ovr"),
+                "Precision": "%.4f" % precision_score(Y_test, Y_pred, average="weighted"),
+                "Recall": "%.4f" % recall_score(Y_test, Y_pred, average="weighted"),
+                "F1 Score": "%.4f" % f1_score(Y_test, Y_pred, average="weighted"),
+                "Matthews Correlation Coefficient": "%.4f" % matthews_corrcoef(Y_test, Y_pred)
             }
             all_metrics.append(metrics)
 
