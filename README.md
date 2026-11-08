@@ -57,6 +57,13 @@ mkoklu@selcuk.edu.tr
   ORCID : 0000-0002-5715-1040  
   ilkerozkan@selcuk.edu.tr  
   
+**Repository Structure**  
+* `app.py`: The main Streamlit web application script containing the UI and prediction logic.  
+* `model/`: Directory containing the pre-trained serialized machine learning models and `.joblib` files.  
+* `test_data.csv`: The scaled subset of the dataset used to evaluate the models in the app.  
+* `original_data.csv`: The orginal dataset obtained from kaggle.  
+* `requirements.txt`: The list of Python dependencies required to run the web application.  
+  
 **Models Used:**  
 * Make a Comparison Table with the evaluation metrics calculated for all the 5 models as below:
 
