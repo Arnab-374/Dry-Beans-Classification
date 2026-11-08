@@ -50,15 +50,16 @@ TURKEY.
 ORCID : 0000-0002-2737-2360  
 mkoklu@selcuk.edu.tr  
   
-Ilker Ali OZKAN  
-Faculty of Technology,  
-Selcuk University,  
-TURKEY.  
-ORCID : 0000-0002-5715-1040  
-ilkerozkan@selcuk.edu.tr  
+  Ilker Ali OZKAN  
+  Faculty of Technology,  
+  Selcuk University,  
+  TURKEY.  
+  ORCID : 0000-0002-5715-1040  
+  ilkerozkan@selcuk.edu.tr  
   
 **Models Used:**  
-- Make a Comparison Table with the evaluation metrics calculated for all the 5 models as below:  
+* Make a Comparison Table with the evaluation metrics calculated for all the 5 models as below:
+
 | Model | Accuracy | ROC AUC Score | Precision | Recall | F1 Score | Matthews Correlation Coefficient |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Logistic Regression** | 0.9207 | 0.9948 | 0.9215 | 0.9207 | 0.9209 | 0.9042 |
@@ -66,8 +67,9 @@ ilkerozkan@selcuk.edu.tr
 | **K-Nearest Neighbors** | 0.9166 | 0.9833 | 0.9174 | 0.9166 | 0.9168 | 0.8992 |
 | **Naive Bayes** | 0.8979 | 0.9916 | 0.9007 | 0.8979 | 0.8981 | 0.8773 |
 | **Support Vector Machine** | 0.9221 | 0.9949 | 0.9224 | 0.9221 | 0.9222 | 0.9059 |
-  
-- Observations on the performance of each model on the chosen dataset:  
+
+* Observations on the performance of each model on the chosen dataset:
+
 | ML Model Name | Observation about model performance |
 | :--- | :--- |
 | **Logistic Regression** | Showed strong performance with the second-highest accuracy (0.9207) and F1 score (0.9209). Using the scaled features allowed the gradient descent to converge effectively and separate the classes linearly. |
@@ -75,5 +77,5 @@ ilkerozkan@selcuk.edu.tr
 | **KNN** | Delivered a solid 0.9166 accuracy. Because the dataset features were properly normalized, the distance-based algorithm could accurately classify the beans based on nearest-neighbor proximity. |
 | **Naive Bayes** | Recorded the lowest overall accuracy (0.8979) and MCC (0.8773). Its core assumption of feature independence restricted its performance, as physical dimensions like Area, Perimeter, and Convex Area are highly correlated in dry beans. |
 | **Support Vector Machine** | Achieved the highest metrics across the board (Accuracy: 0.9221, ROC AUC: 0.9949). It proved to be the most effective at handling the multi-class overlapping boundaries in this high-dimensional space. |
-| **Overall, Winner for your dataset?** | **Support Vector Machine (SVM)** narrowly outperformed Logistic Regression across all classification metrics, making it the most robust model for this dataset. |  
+| **Overall, Winner for your dataset?** | **Support Vector Machine (SVM)** narrowly outperformed Logistic Regression across all classification metrics, making it the most robust model for this dataset. |
   
